@@ -2,10 +2,7 @@
 
 //Entity class holds an x and y position, a method to calculate distance,
 //and a few methods to enable communication between different entities
-import java.util.ArrayList;
 import java.awt.Graphics;
-import java.util.Random;
-import java.awt.Color;
 public class Entity
 {
     private double xPos;

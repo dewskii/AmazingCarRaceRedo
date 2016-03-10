@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.awt.Graphics;
 import java.util.Random;
 
-import javax.swing.JTextArea;
 
 import java.awt.Color;
 public class Car extends Movable

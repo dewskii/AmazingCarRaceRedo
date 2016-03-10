@@ -1,10 +1,7 @@
 //Fred Dolan
 
 //Stops are locations that the cars travel between
-import java.util.ArrayList;
 import java.awt.Graphics;
-import java.util.Random;
-import java.awt.Color;
 public class Stop extends Entity
 {
     public Stop(double x, double y, String n)

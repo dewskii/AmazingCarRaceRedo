@@ -2,10 +2,6 @@
 
 //a shell class for movable objects
 //this should really all be in Entity shouldn't it?
-import java.util.ArrayList;
-import java.awt.Graphics;
-import java.util.Random;
-import java.awt.Color;
 public class Movable extends Entity
 {
     private double vector;

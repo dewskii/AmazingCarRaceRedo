@@ -4,8 +4,6 @@
 import java.util.ArrayList;
 import java.awt.Graphics;
 import java.util.Random;
-import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.*;
 public class Race

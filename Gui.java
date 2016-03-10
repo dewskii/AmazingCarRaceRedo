@@ -3,7 +3,6 @@
 //its a gui
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 public class Gui extends JPanel {
 
     public Race race;
