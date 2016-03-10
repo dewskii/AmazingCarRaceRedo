@@ -14,6 +14,7 @@ public class Main extends JFrame{
     private JButton startButton;
     private Gui gui;
     private JPanel mainPanel;
+    private JScrollPane scrollPane;
     
 	public Main(Gui gui){
             startScreen = new JPanel(); 
@@ -32,7 +33,7 @@ public class Main extends JFrame{
             mainPanel = new JPanel();
             mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
             mainPanel.setSize(400, 600);
-            JScrollPane scrollPane = new JScrollPane(gui.race.getText(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            scrollPane = new JScrollPane(gui.race.getText(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
             mainPanel.add(gui);
             mainPanel.add(scrollPane);
             mainPanel.setVisible(false);
@@ -40,6 +41,8 @@ public class Main extends JFrame{
             setVisible(true); 
             startButton.setVisible(true);
             startScreen.setVisible(true);
+            //run();
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
         
         public class ButtonListener implements ActionListener { 
@@ -47,10 +50,14 @@ public class Main extends JFrame{
             public void actionPerformed(ActionEvent e) { 
                if(e.getSource()==startButton)
                 {
-                    startScreen.setVisible(false);
-                    mainPanel.setVisible(true);                    
-                    run();
-                    setVisible(true);
+                    System.out.println("clicked");
+                    remove(startScreen);
+                     mainPanel.add(gui);
+                     mainPanel.add(scrollPane);
+                     mainPanel.setVisible(true);
+                     revalidate();
+                     repaint();  
+                     //run();
                 }
             }
             
@@ -75,6 +82,7 @@ public class Main extends JFrame{
 	public static void main(String[] args){
 		Gui g = new Gui();
 		new Main(g);
+                
 
 	}
 }
