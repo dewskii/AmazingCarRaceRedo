@@ -114,11 +114,11 @@ public class Car extends Movable
         return stops.get(index);
     }
 
-    //increments the shutup timer
-    public void incShutup()
-    {
-        shutup+=1;
-    }
+//    //increments the shutup timer
+//    public void incShutup()
+//    {
+//        shutup+=1;
+//    }
 
     public boolean getWinner()
     {

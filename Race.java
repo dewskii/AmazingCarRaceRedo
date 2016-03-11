@@ -12,6 +12,7 @@ public class Race
     private ArrayList<Stop> stops;
     //private ArrayList<Dinosaur> dinos;
     private JTextArea textArea;
+    private JTextArea winner;
 
     private Random gen;
 /*    private int xSize;
@@ -58,6 +59,11 @@ public class Race
         textArea = new JTextArea();
         textArea.setSize(380, 300);
         textArea.setEditable(false);
+        //text area for the results page
+        winner = new JTextArea();
+        winner.setSize(400,600);
+        
+        
     }
     public ArrayList<Car> getCars() {
     	return cars;
@@ -97,6 +103,7 @@ public class Race
         if(findWinner()!=null){
             over=true;
             addText(findWinner()+" has won");
+            addResults(findWinner()+ " has won");
         }
         else{
            /* for(Dinosaur d: dinos)
@@ -112,7 +119,7 @@ public class Race
     {
         for(Car c: cars)
         {
-            c.incShutup();
+//            c.incShutup();
             /*if(c.checkDinos(dinos)!=null)
             {
                 //addText(c.checkDinos(dinos).getName()+" has scared "+c.getName());
@@ -126,14 +133,23 @@ public class Race
             //}
         }
     }
-
+    
+    public void addResults(String text)
+    {
+      winner.append(text);
+    }
+    
+    public JTextArea getResultsText()
+    {
+        return winner;
+    }
+    //adds text to the info display that displays below the game display
     public void addText(String text){
     	textArea.append(text+"\n");
     }
 
     public JTextArea getText() {
-    	//JScrollPane scrollPane = new JScrollPane(textArea);
-    	//scrollPane.setPreferredSize(new Dimension(450, 110));
+    	
     	return textArea;
     }
 

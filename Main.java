@@ -1,33 +1,24 @@
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Color;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 
 public class Main extends JFrame{
     
-    private JPanel startScreen;
-    private JButton startButton;
+   
     private Gui gui;
     private JPanel mainPanel;
-    private JScrollPane scrollPane;
+    private JScrollPane scrollPane;   
+    private JPanel resultsScreen;
+    private JScrollPane results;
+    
     
 	public Main(Gui gui){
-            startScreen = new JPanel(); 
-            startScreen.setSize(400,600);
-            startScreen.setLayout(new BoxLayout(startScreen, BoxLayout.PAGE_AXIS));
-            startButton = new JButton("Start");
-            startButton.setAlignmentX(CENTER_ALIGNMENT);
-            startScreen.add(startButton);  
-            add(startScreen);
-            ButtonListener bl = new ButtonListener();
-            startButton.addActionListener(bl);
-            
-            
+           
             this.gui = gui;
             setSize(400,600);
             mainPanel = new JPanel();
@@ -36,31 +27,39 @@ public class Main extends JFrame{
             scrollPane = new JScrollPane(gui.race.getText(), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
             mainPanel.add(gui);
             mainPanel.add(scrollPane);
-            mainPanel.setVisible(false);
+            mainPanel.setVisible(true);
             getContentPane().add(mainPanel);
             setVisible(true); 
-            startButton.setVisible(true);
-            startScreen.setVisible(true);
-            //run();
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           
+            
+             resultsScreen = new JPanel();
+             //JTextArea resultsTitle = new JTextArea("Results Page!!!");
+            // resultsTitle.setSize(100,100);
+            // resultsTitle.setBackground(Color.red);
+             resultsScreen.setLayout(new BoxLayout(resultsScreen, BoxLayout.PAGE_AXIS));
+             resultsScreen.setVisible(false);
+             resultsScreen.setSize(400,600);
+             results = new JScrollPane(gui.race.getResultsText());
+             results.setVisible(false);
+             results.setSize(400,500);
+            //resultsScreen.add(resultsTitle);
+             resultsScreen.add(results);
+             add(resultsScreen);
+              
+           
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
         
-        public class ButtonListener implements ActionListener { 
-            @Override
-            public void actionPerformed(ActionEvent e) { 
-               if(e.getSource()==startButton)
-                {
-                    System.out.println("clicked");
-                    remove(startScreen);
-                     mainPanel.add(gui);
-                     mainPanel.add(scrollPane);
-                     mainPanel.setVisible(true);
-                     revalidate();
-                     repaint();  
-                     //run();
-                }
+        public void displayWinner(){
+            if(gui.race.getOver())
+            {
+                System.out.println("winner");
+                remove(mainPanel);
+                resultsScreen.setVisible(true);
+                results.setVisible(true);                
+                revalidate();
+                repaint();
             }
-            
         }
 	  public void run() {
 	    	int ind = 0;
@@ -81,8 +80,8 @@ public class Main extends JFrame{
 
 	public static void main(String[] args){
 		Gui g = new Gui();
-		new Main(g);
-                
-
+		Main m = new Main(g);
+                m.run();
+                m.displayWinner();     
 	}
 }
