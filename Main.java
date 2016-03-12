@@ -1,10 +1,8 @@
 
-import java.awt.Color;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 
 public class Main extends JFrame{
@@ -32,28 +30,22 @@ public class Main extends JFrame{
             setVisible(true); 
            
             
-             resultsScreen = new JPanel();
-             //JTextArea resultsTitle = new JTextArea("Results Page!!!");
-            // resultsTitle.setSize(100,100);
-            // resultsTitle.setBackground(Color.red);
+             resultsScreen = new JPanel();           
              resultsScreen.setLayout(new BoxLayout(resultsScreen, BoxLayout.PAGE_AXIS));
              resultsScreen.setVisible(false);
              resultsScreen.setSize(400,600);
              results = new JScrollPane(gui.race.getResultsText());
              results.setVisible(false);
              results.setSize(400,500);
-            //resultsScreen.add(resultsTitle);
-             resultsScreen.add(results);
-             add(resultsScreen);
-              
+             resultsScreen.add(results);           
+             add(resultsScreen);             
            
             setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
-        
+        //if the race is over this gets rid of the mainPanel and replaces it with the resultsScreen Jpanel
         public void displayWinner(){
             if(gui.race.getOver())
-            {
-                System.out.println("winner");
+            {              
                 remove(mainPanel);
                 resultsScreen.setVisible(true);
                 results.setVisible(true);                
@@ -73,8 +65,7 @@ public class Main extends JFrame{
 	                System.out.println("Everything's broken cry");
 	            }
 	            gui.repaint();
-	            ind++;
-	            //System.out.println(ind);
+	            ind++;	           
 	        }
 	    }
 

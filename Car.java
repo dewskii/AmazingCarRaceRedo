@@ -17,8 +17,7 @@ public class Car extends Movable
     private Stop destination;
     //has this car won
     private boolean winner;
-    //a timer to avoid message spam
-    private int shutup;
+   
     //textArea to post info
     private String infoText;
     //colors
@@ -65,24 +64,7 @@ public class Car extends Movable
         visited.add(stop);
         destination=findStop();
     }
-
-    //checks to see if a dino is near and returns the nearby dino
-   /* public Dinosaur checkDinos(ArrayList<Dinosaur> dinos)
-    {
-        for(Dinosaur d:dinos)
-        {
-            if(d.calcDistance(this)<100)
-            {
-                if(shutup>10)
-                {
-
-                    shutup=0;
-                }
-                return d;
-            }
-        }
-        return null;
-    }*/
+   
 
     //finds an unvisited stop and returns it; sets the car to winner if all stops are visited
     public Stop findStop()
@@ -113,12 +95,6 @@ public class Car extends Movable
         int index = gen.nextInt(stops.size());
         return stops.get(index);
     }
-
-//    //increments the shutup timer
-//    public void incShutup()
-//    {
-//        shutup+=1;
-//    }
 
     public boolean getWinner()
     {

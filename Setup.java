@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Setup
 {
     private ArrayList<String> firstnames;
-    private ArrayList<String> lastnames;
-    private ArrayList<String> dinonames;
+    private ArrayList<String> lastnames;    
     public Setup()
     {
         firstnames = new ArrayList<String>();
@@ -45,13 +44,7 @@ public class Setup
         lastnames.add("Kennedy");
         lastnames.add("Nguyen");
         lastnames.add("Smith");
-        dinonames = new ArrayList<String>();
-        dinonames.add("Rawr");
-        dinonames.add("Grrrrrrr");
-        dinonames.add("Roar");
-        dinonames.add("ROAR");
-        dinonames.add("ROAAAAAAAAAAAAAAR");
-        dinonames.add("GRAUW");
+       
     }
     public ArrayList<String> getFirstNames()
     {
@@ -61,8 +54,5 @@ public class Setup
     {
         return lastnames;
     }
-    public ArrayList<String> getDinoNames()
-    {
-        return dinonames;
-    }
+  
 }

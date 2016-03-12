@@ -8,7 +8,7 @@ public class Gui extends JPanel {
     public Race race;
     public static int XS;
     public static int YS;
-    //public JPanel gui;
+   
 
     public Gui() {
 
